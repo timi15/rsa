@@ -19,4 +19,4 @@ def chinese_remainder_theorem_alg(c, d, p, q):
 
     return m
 
-# print(kinai_maradek_tetel(15, 23, 5, 11))
+# print(chinese_remainder_theorem_alg(15, 23, 5, 11))

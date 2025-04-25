@@ -3,7 +3,7 @@ def extended_euclid_alg(a, b):
     x1 = 0
     y0 = 0
     y1 = 1
-    s = 1
+    k = 1
 
     while b != 0:
         r = a % b
@@ -16,12 +16,12 @@ def extended_euclid_alg(a, b):
         y1 = q * y1 + y0
         x0 = x
         y0 = y
-        s = -s
+        k = -k
 
-    x = s * x0
-    y = -s * y0
+    x = k * x0
+    y = -k * y0
     (d, x, y) = (a, x, y)
 
     return d, x, y
 
-# print(kibovitett_euklideszi_alg(655, 321))
+# print(extended_euclid_alg(655, 321))

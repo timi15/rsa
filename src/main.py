@@ -22,11 +22,11 @@ def main():
     signature = sign(m, d, p, q)
     print(f"Signature: {signature}")
 
-    #Valid
+    # Valid
     print(f"The signature is valid: {"Yes" if verify(m, signature, e, n) else "No"}")
 
-    #Invalid
-    print(f"The signature is valid: {"Yes" if verify(m, signature+1, e, n) else "No"}")
+    # Invalid
+    print(f"The signature is valid: {"Yes" if verify(m, signature + 1, e, n) else "No"}")
 
 
 if __name__ == "__main__":

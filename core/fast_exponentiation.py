@@ -11,4 +11,4 @@ def fast_exponentiation_alg(base, exp, mod):
     else:
         return base * fast_exponentiation_alg(base, exp - 1, mod) % mod
 
-# print(gyorshatvanyozas_alg(7, 315, 631))
+# print(fast_exponentiation_alg(7, 315, 631))
