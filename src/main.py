@@ -3,30 +3,22 @@ from signature.digital_signature import sign, verify
 
 
 def main():
-    p = 257
-    q = 631
-    pk, sk = key_generation(p, q)
-    e, n = pk
-    d, _ = sk
+    (e, n), d ,(p, q) = key_generation()
 
-    print(f"public key: {pk}, \t secret key: {sk}")
-    print(f"e: {e} \t n:{n}")
-    print(f"d: {d}")
+    print(f"public key: {e, n}, \t secret key: {d}")
+    print(f"e: {e} \t n:{n} \t d: {d}")
 
-    c = encrypt(20, e, n)
+    message = int(input("Give me a message: "))
+
+    c = encrypt(message, e, n)
     m = decrypt(c, d, p, q)
 
-    print(f"c: {c}")
-    print(f"m: {m}")
+    print(f"c: {c} \t m: {m}")
 
-    signature = sign(m, d, p, q)
+    signature = sign(message, d, p, q)
     print(f"Signature: {signature}")
 
-    # Valid
     print(f"The signature is valid: {"Yes" if verify(m, signature, e, n) else "No"}")
-
-    # Invalid
-    print(f"The signature is valid: {"Yes" if verify(m, signature + 1, e, n) else "No"}")
 
 
 if __name__ == "__main__":

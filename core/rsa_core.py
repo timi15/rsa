@@ -6,9 +6,23 @@ from core.miller_rabin import isPrime
 import random
 
 
-def key_generation(p, q):
-    if isPrime(p) != "ProbablyPrime" and isPrime(q) != "ProbablyPrime":
-        return "p v. q not prime"
+def prime_generation():
+    while True:
+        p = random.randint(5000, 10000)
+        if isPrime(p) == 'ProbablyPrime':
+            break
+
+    while True:
+        q = random.randint(5000, 10000)
+        if isPrime(q) == 'ProbablyPrime' and q != p:
+            break
+
+    return p, q
+
+
+def key_generation():
+    p, q = prime_generation()
+
     n = p * q
     phi_n = (p - 1) * (q - 1)
     e = 0
@@ -23,7 +37,7 @@ def key_generation(p, q):
     while d < 0:
         d += phi_n
 
-    return (e, n), (d, n)
+    return (e, n), d ,(p, q)
 
 
 def encrypt(m, e, n):
