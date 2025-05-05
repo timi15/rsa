@@ -25,6 +25,6 @@ def isPrime(n, k=8):
         a = random.randint(2, n - 1)
         if isStrongPrime(n, a) == "Composite":
             return "Composite"
-        return "ProbablyPrime"
+    return "ProbablyPrime"
 
 # print(isPrime(257))
