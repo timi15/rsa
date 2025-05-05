@@ -7,6 +7,7 @@ def main():
 
     print(f"public key: {e, n}, \t secret key: {d}")
     print(f"e: {e} \t n:{n} \t d: {d}")
+    print(f"p: {p} \t q:{q}")
 
     message = int(input("Give me a message: "))
 
